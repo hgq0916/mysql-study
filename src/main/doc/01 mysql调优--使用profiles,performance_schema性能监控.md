@@ -1,14 +1,14 @@
-![image-20200831091639692](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831091639692.png)
+![image-20200831091639692](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831091639692.png)
 
 #### 性能监控
 
 ##### 1.使用show profile查询剖析工具，可以指定具体的type
 
-![image-20200831093621193](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831093621193.png)
+![image-20200831093621193](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831093621193.png)
 
 **sql执行过程：**
 
-![image-20200831093001403](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831093001403.png)
+![image-20200831093001403](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831093001403.png)
 
 客户端建立连接---server端连接器 密码权限校验----分析器（按照关键字切分，转换为抽象语法树AST）----优化器（RBO、CBO）---执行器（存储引擎）
 
@@ -26,27 +26,27 @@ sql优化：
 >
 > CBO: 基于成本的优化 
 
-![image-20200831093246958](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831093246958.png)
+![image-20200831093246958](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831093246958.png)
 
-![image-20200831093303631](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831093303631.png)
+![image-20200831093303631](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831093303631.png)
 
-![image-20200831093340832](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831093340832.png)
+![image-20200831093340832](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831093340832.png)
 
-![image-20210816174848910](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816174848910.png)
+![image-20210816174848910](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816174848910.png)
 
-![image-20210816174909999](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816174909999.png)
+![image-20210816174909999](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816174909999.png)
 
 show profile ：显示最后一次执行的sql的时间
 
 show profile for query Query_ID :显示指定的sql语句的执行时间
 
-![image-20210816175047670](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816175047670.png)
+![image-20210816175047670](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816175047670.png)
 
 查看cpu的使用情况:show profile cpu
 
 查看所有的属性值：show profile all
 
-![image-20210816175533817](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816175533817.png)
+![image-20210816175533817](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816175533817.png)
 
 ```
 SHOW PROFILE的用法：
@@ -87,7 +87,7 @@ show profile all;
 
 mysql官网：dev.mysql.com
 
-![image-20200831093422210](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831093422210.png)
+![image-20200831093422210](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831093422210.png)
 
 
 
@@ -95,9 +95,9 @@ mysql官网：dev.mysql.com
 
 ##### 2.使用performance_schema来更加容易的监控mysql
 
-![image-20200831094131927](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831094131927.png)
+![image-20200831094131927](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831094131927.png)
 
-![image-20200831094209829](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831094209829.png)
+![image-20200831094209829](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831094209829.png)
 
 performance_schema:87张表
 
@@ -209,33 +209,33 @@ select * from file_instances limit 20;
  #查看生产配置表
  select * from setup_instruments;
 
-![image-20210817221217999](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210817221217999.png)
+![image-20210817221217999](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210817221217999.png)
 
 ##### 使用show processlist查看连接的客户端
 
-![image-20200831100747338](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831100747338.png)
+![image-20200831100747338](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831100747338.png)
 
-![image-20200831100640894](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831100640894.png)
+![image-20200831100640894](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831100640894.png)
 
 java数据库连接池: c3p0,dbcp,drud(性能最优)
 
 ### schema与数据类型优化
 
-![image-20200831102034734](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831102034734.png)
+![image-20200831102034734](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831102034734.png)
 
 ##### 更小的通常更好
 
-![image-20210816224853798](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816224853798.png)
+![image-20210816224853798](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816224853798.png)
 
 例子：
 
-![image-20210816225044011](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225044011.png)
+![image-20210816225044011](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225044011.png)
 
-![image-20210816225029076](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225029076.png)
+![image-20210816225029076](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225029076.png)
 
-![image-20210816225112800](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225112800.png)
+![image-20210816225112800](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225112800.png)
 
-![image-20210816225129545](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225129545.png)
+![image-20210816225129545](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225129545.png)
 
 ```
  #验证数据类型对查询性能的影响
@@ -244,11 +244,11 @@ java数据库连接池: c3p0,dbcp,drud(性能最优)
  show profiles;
 ```
 
-![image-20210817225223070](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210817225223070.png)
+![image-20210817225223070](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210817225223070.png)
 
-![image-20210816225307850](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225307850.png)
+![image-20210816225307850](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225307850.png)
 
-![image-20210816225430947](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225430947.png)
+![image-20210816225430947](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225430947.png)
 
 ```
  #ip地址可以被转换为int，节约存储空间，但是可读性变差了
@@ -258,33 +258,33 @@ select  inet_aton('192.168.25.255')
 
 ##### 尽量避免null
 
-![image-20210816225527926](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225527926.png)
+![image-20210816225527926](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225527926.png)
 
 使用整数类型
 
-![image-20210816225643302](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225643302.png)
+![image-20210816225643302](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210816225643302.png)
 
 ##### varchar可变长度存储
 
 磁盘使用4k对齐存储，局部性原理，预加载
 
-![image-20200831104553390](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831104553390.png)
+![image-20200831104553390](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831104553390.png)
 
-![image-20200831110512883](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831110512883.png)
+![image-20200831110512883](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831110512883.png)
 
 BOB和TEXT类型
 
-![image-20200831111103974](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831111103974.png)
+![image-20200831111103974](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831111103974.png)
 
-![image-20210817230542123](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210817230542123.png)
+![image-20210817230542123](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210817230542123.png)
 
 使用枚举类型代替字符串
 
-![image-20200831102148437](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831102148437.png)
+![image-20200831102148437](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831102148437.png)
 
-![image-20200831102216569](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831102216569.png)
+![image-20200831102216569](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20200831102216569.png)
 
-![image-20210817231114398](107 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210817231114398.png)
+![image-20210817231114398](01 mysql调优--使用profiles,performance_schema性能监控.assets/image-20210817231114398.png)
 
 frm:表结构
 
