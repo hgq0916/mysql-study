@@ -52,7 +52,7 @@ key_len: 索引的长度
 
 书：《淘宝技术这10年》
 
-网站: cs.usfca.edu
+网站: https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
 
 mysql：
 
